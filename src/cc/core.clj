@@ -4,7 +4,7 @@
             [clojure.pprint]))
 
 (println "Running...")
-
+(println)
 (println "Cliente")
 (clojure.pprint/pprint cc.db/cliente)
 (println)
