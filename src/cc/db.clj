@@ -1,4 +1,5 @@
-(ns cc.db (:require cc.util))
+(ns cc.db
+  (:require cc.util))
 
 (def cliente {:nome "Allan Fernando", :cpf "12345678909", :email "allan@allan.com"})
 

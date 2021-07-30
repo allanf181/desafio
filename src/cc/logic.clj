@@ -8,13 +8,13 @@
   (map
     (fn [[k v]]
       {:categoria k
-       :total (reduce + (map :valor v))})
+       :total     (reduce + (map :valor v))})
     (group-by :categoria compras)))
 
 (defn agrupar-compras-por-mes [compras]
   (map
     (fn [[k v]]
-      {:mes k
+      {:mes   k
        :valor (reduce + (map :valor v))})
     (group-by cc.util/get-month-from-compra compras)))
 
