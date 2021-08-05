@@ -32,3 +32,11 @@
                                              {:data (ut/date-from 1 1 2021), :valor 10.01M, :estabelecimento "EST", :categoria "CAT2"}
                                              {:data (ut/date-from 1 1 2021), :valor 2.02M, :estabelecimento "EST", :categoria "CAT1"}
                                              {:data (ut/date-from 1 1 2021), :valor 20.02M, :estabelecimento "EST", :categoria "CAT2"}])))))
+
+(deftest listar-faturas
+  (testing "Lista de compras 4 itens 2 meses"
+    (is (= [{:mes "fevereiro/2021", :valor 11.11M} {:mes "janeiro/2021", :valor 22.22M}]
+           (l/agrupar-compras-por-mes [{:data (ut/date-from 1 2 2021), :valor 1.01M, :estabelecimento "EST", :categoria "CAT1"}
+                                       {:data (ut/date-from 2 2 2021), :valor 10.10M, :estabelecimento "EST", :categoria "CAT2"}
+                                       {:data (ut/date-from 1 1 2021), :valor 2.02M, :estabelecimento "EST", :categoria "CAT1"}
+                                       {:data (ut/date-from 2 1 2021), :valor 20.20M, :estabelecimento "EST", :categoria "CAT2"}])))))

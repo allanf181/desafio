@@ -1,7 +1,7 @@
 (ns cc.util)
 
 (import java.util.Calendar)
-(import java.text.DateFormatSymbols)
+(import java.text.SimpleDateFormat)
 
 (defn date-from [d m y]
   (.getTime (doto (Calendar/getInstance)
@@ -9,4 +9,4 @@
               (.set y (- m 1) d 0 0 0))))
 
 (defn get-month-from-compra [item]
-  ((vec (.getMonths (DateFormatSymbols/getInstance))) (.getMonth (item :data))))
+  (.format (SimpleDateFormat. "MMMMM/yyyy") (item :data)))
