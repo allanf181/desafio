@@ -2,6 +2,7 @@
   (:require [cc.util :as ut]
             [cc.schema :as xs]
             [schema.core :as s]))
+(s/set-fn-validation! true)
 
 (defn get-compras [compras cliente cartao]
   ((compras (keyword (cliente :cpf))) (keyword (cartao :numero))))
@@ -20,6 +21,5 @@
             :valor (reduce + (map :valor v))})
          (group-by ut/get-month-from-compra compras))))
 
-(defn adiciona-compra [compras cliente cartao compra]
-  (s/validate xs/Compra compra)
+(s/defn adiciona-compra [compras cliente cartao compra :- xs/Compra]
   (update-in compras [(keyword (cliente :cpf)) (keyword (cartao :numero))] conj compra))

@@ -27,9 +27,3 @@
 (println)
 (println "Faturas")
 (pp/print-table (l/agrupar-compras-por-mes (l/get-compras db/compras db/cliente db/cartao)))
-
-
-
-
-
-
